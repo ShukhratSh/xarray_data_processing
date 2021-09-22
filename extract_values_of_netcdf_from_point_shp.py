@@ -1,21 +1,17 @@
-
+# This code masks netcdf data from point shapefile
 import numpy as np
 import xarray as xr
 import rioxarray
 import geopandas as gpd
 
-# Plotting options
-sns.set(font_scale=1.3)
-sns.set_style("white")
-
 # reading MODIS FMC data between 2014 and 2020
-fmc_modis_2014 = xr.open_dataset("D:/fmc_modis/fmc_modis_lc/fmc_veg_cov_2014.nc")
-fmc_modis_2015 = xr.open_dataset("D:/fmc_modis/fmc_modis_lc/fmc_veg_cov_2015.nc")
-fmc_modis_2016 = xr.open_dataset("D:/fmc_modis/fmc_modis_lc/fmc_veg_cov_2016.nc")
-fmc_modis_2017 = xr.open_dataset("D:/fmc_modis/fmc_modis_lc/fmc_veg_cov_2017.nc")
-fmc_modis_2018 = xr.open_dataset("D:/fmc_modis/fmc_modis_lc/fmc_veg_cov_2018.nc")
-fmc_modis_2019 = xr.open_dataset("D:/fmc_modis/fmc_modis_lc/fmc_veg_cov_2019.nc")
-fmc_modis_2020 = xr.open_dataset("D:/fmc_modis/fmc_modis_lc/fmc_veg_cov_2020.nc")
+fmc_modis_2014 = xr.open_dataset("/fmc_veg_cov_2014.nc")
+fmc_modis_2015 = xr.open_dataset("/fmc_veg_cov_2015.nc")
+fmc_modis_2016 = xr.open_dataset("/fmc_veg_cov_2016.nc")
+fmc_modis_2017 = xr.open_dataset("/fmc_veg_cov_2017.nc")
+fmc_modis_2018 = xr.open_dataset("/fmc_veg_cov_2018.nc")
+fmc_modis_2019 = xr.open_dataset("/fmc_veg_cov_2019.nc")
+fmc_modis_2020 = xr.open_dataset("/fmc_veg_cov_2020.nc")
 
 # Concatenating FMC data from different times
 fmc_lut_modis = xr.concat([fmc_modis_2014, fmc_modis_2015, fmc_modis_2016, fmc_modis_2017, fmc_modis_2018, fmc_modis_2019, fmc_modis_2020], dim='time')
